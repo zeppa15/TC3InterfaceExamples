@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB2" Id="{413a6a38-7614-4c1d-aeab-92753ab51c6e}" SpecialFunc="None">
+    <Declaration><![CDATA[//Anche FB2 Implementa l'interfaccia iFB
+//Posso considerarla come un'altra implementazione della stessa
+
+FUNCTION_BLOCK PUBLIC FB2 IMPLEMENTS iFb
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fInternalInput1 : REAL;
+	fInternalInput2 : REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="fInput1" Id="{ffa9bc79-1456-46dc-94a0-ec5167f9f9b0}">
+      <Declaration><![CDATA[{warning 'add property implementation'}
+PROPERTY fInput1 : REAL
+]]></Declaration>
+      <Get Name="Get" Id="{9a67498a-b28e-4503-b65c-6c7eaf36de2a}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[fInput1 := this^.fInternalInput1;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{6a39df0c-cd8e-4c69-a7a6-872357a36c70}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[this^.fInternalInput1 := fInput1;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="fInput2" Id="{62a3d6e3-2695-4ab8-8f48-17b0d403e21a}">
+      <Declaration><![CDATA[{warning 'add property implementation'}
+PROPERTY fInput2 : REAL
+]]></Declaration>
+      <Get Name="Get" Id="{b7615b87-26fd-4270-abfa-c7714cdd9fbe}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[fInput2 := this^.fInternalInput2;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{eefeb826-7d41-49b8-9ad8-df5012f99532}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[this^.fInternalInput2 := fInput2;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="returnValue" Id="{4b95e94b-8f6d-4b5e-a7ad-acf679323fd0}">
+      <Declaration><![CDATA[{warning 'add method implementation'}
+METHOD returnValue : REAL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//Implementazione Interfaccia con moltiplicazione
+returnValue := this^.fInput1 * this^.fInput2;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB2">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB2.fInput1.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB2.fInput1.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB2.fInput2.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB2.fInput2.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB2.returnValue">
+      <LineId Id="5" Count="0" />
+      <LineId Id="4" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

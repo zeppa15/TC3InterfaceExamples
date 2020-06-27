@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="MAIN" Id="{14352522-c045-4d74-bdcc-b8533faf0648}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	//Input uguali per tutti
+	fI1 : REAL := 5; 	
+	fI2 : REAL := 2;
+	
+	//Le funzioni generiche FB4 che hanno in input una iFB
+	fb4_1 : FB4;
+	fb4_2 : FB4;
+	fb4_3 : FB4;
+
+	//Implementazioni di IFB
+	fb1: FB1;		
+	fb2: FB2;		
+	fb3: FB3;
+	bFlagFb3 :  BOOL;	
+	
+	//Risultati
+	bResFB4_1 : BOOL;
+	bResFB4_2 : BOOL;
+	bResFB4_3 : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Passo il parametro in input a FB3 (non previsto dall'interfaccia)
+fb3.bFlag := bFlagFb3;
+
+//Uso la FB4 tre volte e richiamo 3 FB diverse che implementano la stessa interfaccia
+fb4_1(fbGenericFB := fb1, fInput1 := fI1, fInput2 := fI2);
+fb4_2(fbGenericFB := fb2, fInput1 := fI1, fInput2 := fI2);
+fb4_3(fbGenericFB := fb3, fInput1 := fI1, fInput2 := fI2);
+
+//Risultati
+bResFB4_1 := fb4_1.bIsEven;  // Somma quindi 5 + 2 = 7 => False
+bResFB4_2 := fb4_2.bIsEven;  // Moltiplicazione quindi 5 * 2 = 10 => True
+bResFB4_3 := fb4_3.bIsEven;  // Se il flag è FALSE, => True, Se il flag è TRUE allora esgue la somma quindi 5 * 2 = 10 => True
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="72" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="51" Count="1" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="63" Count="2" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <Itf Name="iFb" Id="{c3f4fc1c-085d-4110-91fb-746296d17549}">
+    <Declaration><![CDATA[//Contiene due proprietà che sono i valori di input
+//ed un metodo generico che calcola il valore
+INTERFACE iFb
+]]></Declaration>
+    <Property Name="fInput1" Id="{82b2a714-4736-41e4-89bb-8e89c73d0faf}">
+      <Declaration><![CDATA[PROPERTY PUBLIC fInput1 : REAL]]></Declaration>
+      <Get Name="Get" Id="{f057e9fd-0700-4be4-abbf-e2e64ad1480a}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{e5efd646-47f4-4d53-9b4f-e1f3612f2a9a}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+    <Property Name="fInput2" Id="{9d782a9f-27f1-41e9-9361-611a98ee541f}">
+      <Declaration><![CDATA[PROPERTY PUBLIC fInput2 : REAL]]></Declaration>
+      <Get Name="Get" Id="{1f9225f6-8ab7-41b6-98b8-edbbfed08724}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{073b8fdf-6c13-4e3e-ac2e-1741d841243d}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+    <Method Name="returnValue" Id="{366a1f6a-752d-49b1-b169-e6b6f6bbf47d}">
+      <Declaration><![CDATA[METHOD returnValue : REAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

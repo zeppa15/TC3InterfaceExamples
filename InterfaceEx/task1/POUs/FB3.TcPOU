@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB3" Id="{b0dae3c9-a621-4edc-bc75-2fc7efc12b67}" SpecialFunc="None">
+    <Declaration><![CDATA[//La FB3 estende la FB1 quindi anche lei implementa l'interfaccia  
+//non devo però implementare i metodi get e set delle proprietà
+FUNCTION_BLOCK FB3 EXTENDS FB1
+VAR_INPUT
+	bFlag : bool;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="returnValue" Id="{f5547232-e576-4308-b44b-30ac1beffa90}">
+      <Declaration><![CDATA[{warning 'add method implementation'}
+METHOD returnValue : REAL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//Estensione della funzione base
+IF bFlag THEN
+	returnValue := SUPER^.returnValue(); //Uso il metodo "padre"
+ELSE
+	returnValue := 0;		
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB3">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB3.returnValue">
+      <LineId Id="11" Count="0" />
+      <LineId Id="4" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="6" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

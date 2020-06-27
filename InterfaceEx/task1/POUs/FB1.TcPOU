@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB1" Id="{06b68a36-e277-4926-ba89-7478bf46f8c0}" SpecialFunc="None">
+    <Declaration><![CDATA[//La FB1 Implementa l'interfaccia iFB
+
+FUNCTION_BLOCK PUBLIC FB1 IMPLEMENTS iFb
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fInternalInput1 : REAL;
+	fInternalInput2 : REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[;]]></ST>
+    </Implementation>
+    <Property Name="fInput1" Id="{df74346d-8b45-4c32-ac3d-33428ff8fec5}">
+      <Declaration><![CDATA[{warning 'add property implementation'}
+PROPERTY fInput1 : REAL
+]]></Declaration>
+      <Get Name="Get" Id="{69ac556e-135e-4c2f-a6a9-ab463f701730}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[fInput1 := this^.fInternalInput1;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{1fbc8862-20fd-429f-b0af-6e53f24b57d7}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[this^.fInternalInput1 := fInput1;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="fInput2" Id="{26ca5f64-78c4-45d8-8019-f1a3ec9fc7f1}">
+      <Declaration><![CDATA[{warning 'add property implementation'}
+PROPERTY fInput2 : REAL
+]]></Declaration>
+      <Get Name="Get" Id="{c29ad947-b7f8-4ea7-bc5e-0c930aa5b530}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[fInput2 := this^.fInternalInput2;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{2d912acc-3279-46a3-83af-16d4bdb35004}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[this^.fInternalInput2 := fInput2;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="returnValue" Id="{09bb01fa-c323-4a0a-a317-12d6398f3bc8}">
+      <Declaration><![CDATA[{warning 'add method implementation'}
+METHOD returnValue : REAL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//Implementazione Interfaccia con somma
+returnValue := this^.fInput1 + this^.fInput2;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB1">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB1.fInput1.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB1.fInput1.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB1.fInput2.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB1.fInput2.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB1.returnValue">
+      <LineId Id="5" Count="0" />
+      <LineId Id="4" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

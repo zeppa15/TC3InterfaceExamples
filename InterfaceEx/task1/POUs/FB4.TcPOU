@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB4" Id="{6f088c33-22ac-4c78-869b-1f3b9b7ebff3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB4
+VAR_INPUT
+	fbGenericFB : iFb;
+	fInput1: REAL;
+	fInput2: REAL; 
+END_VAR
+VAR_OUTPUT
+	bIsEven : BOOL;
+END_VAR
+VAR
+	iResult : INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+//Inizializzo e uso la FB Generica grazie all'interfaccia
+fbGenericFB.fInput1 := fInput1;
+fbGenericFB.fInput2 := fInput2;
+
+iResult := REAL_TO_INT(fbGenericFB.returnValue());
+
+//Calcolo l'output
+bIsEven := (iResult MOD 2) = 0;
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB4">
+      <LineId Id="14" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="17" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
